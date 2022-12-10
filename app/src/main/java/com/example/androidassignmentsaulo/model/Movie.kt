@@ -1,5 +1,11 @@
 package com.example.androidassignmentsaulo.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+//Parcelize = interface whose purpose is to allow a quick way of passing objects
+// between the various components that Android has
+@Parcelize
 data class Movie(
     val adult: Boolean,
     val backdrop_path: String,
@@ -15,4 +21,4 @@ data class Movie(
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Int
-)
+) : Parcelable
