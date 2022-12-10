@@ -35,9 +35,10 @@ class MoviesAdapter(
 
         fun bind(movie: Movie){
             binding.movieTitle.text = movie.title
+            binding.descrip.text = movie.overview
             Glide
                 .with(binding.root.context)
-                .load("https://image.tmdb.org/t/p/w185/${movie.poster_path}")
+                .load("https://image.tmdb.org/t/p/w780/${movie.poster_path}")
                 .into(binding.imageView)
         }
     }
