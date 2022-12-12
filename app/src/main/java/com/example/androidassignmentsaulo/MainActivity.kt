@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             moviesAdapter.movies = popularMovies.results
             moviesAdapter.notifyDataSetChanged()
         }
+
     }
 
 
@@ -54,12 +55,22 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-
-    private fun searchByName(query:String){
+    /*
+    fun searchByName(query:String) {
         CoroutineScope(Dispatchers.IO).launch {
             val apiKey = getString(R.string.api_key)
-            val popularMovies = MovieDbClient.service.listPopularMovies(apiKey)
+            val call = MovieDbClient.service.listPopularMovies(apiKey)
 
+
+            val movies: List<Movie> = call.results
+
+            for ((index, item) in movies.withIndex()){
+                if (movies[index].title == query){
+
+                }
+            }
         }
-    }
+
+    }*/
+
 }
