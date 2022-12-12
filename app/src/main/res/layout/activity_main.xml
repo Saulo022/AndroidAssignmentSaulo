@@ -15,13 +15,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!--
         <androidx.appcompat.widget.SearchView
             android:id="@+id/svMovies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints">
 
-        </androidx.appcompat.widget.SearchView>
+        </androidx.appcompat.widget.SearchView>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMovies"
