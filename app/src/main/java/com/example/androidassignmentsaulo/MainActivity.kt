@@ -6,19 +6,28 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.androidassignmentsaulo.databinding.ActivityMainBinding
 import com.example.androidassignmentsaulo.model.Movie
 import com.example.androidassignmentsaulo.model.MovieDbClient
+import com.example.androidassignmentsaulo.model.MovieDbService
 import com.example.androidassignmentsaulo.movieDetail.MovieDetail
+import com.example.androidassignmentsaulo.viewModel.MovieViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val movieViewModel: MovieViewModel by viewModels()
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,5 +52,14 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, MovieDetail::class.java)
         intent.putExtra(MovieDetail.EXTRA_MOVIE, movie)
         startActivity(intent)
+    }
+
+
+    private fun searchByName(query:String){
+        CoroutineScope(Dispatchers.IO).launch {
+            val apiKey = getString(R.string.api_key)
+            val popularMovies = MovieDbClient.service.listPopularMovies(apiKey)
+
+        }
     }
 }

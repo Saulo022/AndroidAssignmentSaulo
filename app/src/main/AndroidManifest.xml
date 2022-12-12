@@ -13,6 +13,7 @@
         android:theme="@style/Theme.AndroidAssignmentSaulo">
         <activity
             android:name=".movieDetail.MovieDetail"
+            android:theme="@style/Theme.AndroidAssignmentSaulo.NoActionBar"
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
         <activity
